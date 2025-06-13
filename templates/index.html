@@ -1,1 +1,51 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Boston House Price Predictor</title>
+    <style>
+        body {
+            background-color: #f0f4f7;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 30px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            display: inline-block;
+            margin-top: 20px;
+        }
+        input {
+            margin: 8px;
+            padding: 10px;
+            width: 250px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #0b79d0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            color: green;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Boston House Price Predictor</h1>
+    <form action="/predict" method="post">
+        {% for i in range(13) %}
+            <input type="text" name="{{ i }}" placeholder="Feature {{ i+1 }}" required><br>
+        {% endfor %}
+        <button type="submit">Predict</button>
+    </form>
+    <div class="result">{{ prediction_text }}</div>
+</body>
+</html>
 
